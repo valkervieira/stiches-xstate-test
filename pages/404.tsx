@@ -1,7 +1,7 @@
-import { HomeTemplate } from '@templates/Home';
+import { Template404 } from '@templates/404';
 
 export const Custom404 = (): JSX.Element => {
-  return <HomeTemplate />;
+  return <Template404 />;
 };
 
 export default Custom404;
