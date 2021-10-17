@@ -1,6 +1,10 @@
-import { FC } from "react";
-import { Code, H1, H2, H3, P } from "@components/Text";
+import { FC } from 'react';
 
-export const HomeTemplate: FC = ({ children }) => {
-  return <main>{children}</main>;
+export const HomeTemplate: FC = () => {
+  return (
+    <main>
+      <h1>hey</h1>
+      <h1>hey</h1>
+    </main>
+  );
 };
