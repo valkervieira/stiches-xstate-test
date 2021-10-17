@@ -3,10 +3,9 @@
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
   <main>
-    <h1>
-      hey
-    </h1>
-    <h1>
+    <h1
+      class="c-PJLV"
+    >
       hey
     </h1>
   </main>
