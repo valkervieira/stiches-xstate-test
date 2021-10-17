@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register page matches snapshot 1`] = `
+<DocumentFragment>
+  <main>
+    <h1
+      class="c-PJLV"
+    >
+      hey
+    </h1>
+  </main>
+</DocumentFragment>
+`;
