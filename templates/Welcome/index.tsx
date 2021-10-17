@@ -1,10 +1,25 @@
 import { FC } from 'react';
-import { H1 } from '@components/Text';
+import { useSession, signIn, signOut } from 'next-auth/client';
 
 export const WelcomeTemplate: FC = () => {
+  const [session, loading] = useSession();
+
+  if (typeof window !== 'undefined' && loading) return null;
+
+  if (!session) {
+    return (
+      <>
+        <p>not logged in</p>
+        <button onClick={() => signIn()}>log in</button>
+      </>
+    );
+  }
+
   return (
-    <main>
-      <H1>hey</H1>
-    </main>
+    <>
+      <p>hello there! welcome to the system</p>
+      <p>looks like youre logged in</p>
+      <button onClick={() => signOut()}>log out</button>
+    </>
   );
 };
