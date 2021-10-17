@@ -1,11 +1,7 @@
-import { H1 } from '@components/Text';
+import { HomeTemplate } from '@templates/Home';
 
-export const Custom404 = () => {
-  return (
-    <div>
-      <H1>Ta perdido, parcero?</H1>
-    </div>
-  );
+export const Custom404 = (): JSX.Element => {
+  return <HomeTemplate />;
 };
 
 export default Custom404;
