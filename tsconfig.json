@@ -19,7 +19,10 @@
     "paths": {
       "@templates/*": ["templates/*"],
       "@pages/*": ["pages/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@machines/*": ["machines/*"],
+      "@contexts/*": ["contexts/*"],
+      "@types/*": ["types/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],

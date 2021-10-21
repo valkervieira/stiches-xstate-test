@@ -27,6 +27,32 @@ export const {
       purple400: 'hsl(252,75%,84%)',
       purple500: 'hsl(252,78%,60%)',
       purple600: 'hsl(252,80%,53%)',
+
+      //
+      // white
+      //
+      white: 'hsl(0, 0%, 99%)',
+      //
+      // black
+      //
+      black400: 'hsl(206, 26%, 27%)',
+      black500: 'hsl(206, 72%, 11%)',
+      black600: 'hsl(0, 0%, 0%)',
+      //
+      // yellow
+      //
+      yellow400: 'hsl(49, 79%, 53%)',
+      yellow500: 'hsl(48, 70%, 48%)',
+      //
+      // red
+      //
+      red400: 'hsl(13, 98%, 52%)',
+      red500: 'hsl(13, 88%, 48%)',
+      //
+      // green
+      //
+      green400: 'hsl(120, 25%, 54%)',
+      green500: 'hsl(120, 32%, 44%)',
     },
     space: {
       1: '5px',
