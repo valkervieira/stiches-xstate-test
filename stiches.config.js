@@ -14,19 +14,35 @@ export const {
       hiContrast: 'hsl(206,10%,5%)',
       loContrast: 'white',
 
-      gray100: 'hsl(206,22%,99%)',
-      gray200: 'hsl(206,12%,97%)',
-      gray300: 'hsl(206,11%,92%)',
-      gray400: 'hsl(206,10%,84%)',
-      gray500: 'hsl(206,10%,76%)',
-      gray600: 'hsl(206,10%,44%)',
-
-      purple100: 'hsl(252,100%,99%)',
-      purple200: 'hsl(252,100%,98%)',
-      purple300: 'hsl(252,100%,94%)',
-      purple400: 'hsl(252,75%,84%)',
-      purple500: 'hsl(252,78%,60%)',
-      purple600: 'hsl(252,80%,53%)',
+      //
+      // white
+      //
+      white: 'hsl(0, 0%, 99%)',
+      //
+      // black
+      //
+      black500: 'hsl(207, 26%, 14%)',
+      black600: 'hsl(207, 26%, 7%)',
+      //
+      // gray
+      //
+      gray400: 'hsl(206, 26%, 27%)',
+      gray500: 'hsl(207, 26%, 27%)',
+      //
+      // yellow
+      //
+      yellow400: 'hsl(49, 79%, 53%)',
+      yellow500: 'hsl(48, 70%, 48%)',
+      //
+      // red
+      //
+      red400: 'hsl(13, 98%, 52%)',
+      red500: 'hsl(13, 88%, 48%)',
+      //
+      // green
+      //
+      green400: 'hsl(120, 25%, 54%)',
+      green500: 'hsl(120, 32%, 44%)',
     },
     space: {
       1: '5px',

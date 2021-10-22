@@ -1,0 +1,107 @@
+import { assign, createMachine, Interpreter, Sender } from 'xstate';
+import { getSession } from 'next-auth/client';
+import type { DefaultUser as UserDetails } from 'next-auth';
+
+export type AuthenticationMachineContext = {
+  userDetails?: UserDetails;
+};
+
+export type AuthenticationMachineEvent =
+  | {
+      type: 'REPORT_IS_LOGGED_IN';
+      userDetails: UserDetails;
+    }
+  | {
+      type: 'REPORT_IS_LOGGED_OUT';
+    }
+  | {
+      type: 'LOG_OUT';
+    }
+  | {
+      type: 'LOG_IN';
+      userDetails: UserDetails;
+    };
+
+export type IAuthInterpreter = Interpreter<AuthenticationMachineContext>;
+
+export const authenticationMachine = createMachine<
+  AuthenticationMachineContext,
+  AuthenticationMachineEvent
+>(
+  {
+    id: 'authentication',
+    initial: 'checkingIfLoggedIn',
+    states: {
+      checkingIfLoggedIn: {
+        invoke: {
+          src: 'checkIfLoggedIn',
+          onError: {
+            target: 'loggedOut',
+          },
+        },
+        on: {
+          REPORT_IS_LOGGED_IN: {
+            target: 'loggedIn',
+            actions: 'assignUserDetailsToContext',
+          },
+          REPORT_IS_LOGGED_OUT: 'loggedOut',
+        },
+      },
+      loggedIn: {
+        on: {
+          LOG_OUT: {
+            target: 'loggedOut',
+          },
+        },
+      },
+      loggedOut: {
+        entry: ['navigateToAuthPage', 'clearUserDetailsFromContext'],
+        on: {
+          LOG_IN: {
+            target: 'loggedIn',
+            actions: 'assignUserDetailsToContext',
+          },
+        },
+      },
+    },
+  },
+  {
+    services: {
+      checkIfLoggedIn:
+        () => async (send: Sender<AuthenticationMachineEvent>) => {
+          // Perform some async check here
+          const session = await getSession();
+
+          if (session) {
+            send({
+              type: 'REPORT_IS_LOGGED_IN',
+              userDetails: session.user,
+            });
+          } else {
+            send({
+              type: 'REPORT_IS_LOGGED_OUT',
+            });
+          }
+        },
+    },
+    actions: {
+      navigateToAuthPage: () => {
+        // When the user is logged out, we
+        // should take them to the /auth route
+      },
+      assignUserDetailsToContext: assign((context, event) => {
+        if (event.type !== 'REPORT_IS_LOGGED_IN') {
+          return {};
+        }
+        return {
+          userDetails: event.userDetails,
+        };
+      }),
+      clearUserDetailsFromContext: assign({
+        userDetails: undefined,
+      }),
+    },
+  }
+);
+
+export default authenticationMachine;

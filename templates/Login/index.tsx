@@ -1,10 +1,31 @@
 import { FC } from 'react';
-import { H1 } from '@components/Text';
+import { authService } from '@services/auth';
+import { useActor } from '@xstate/react';
+import { P } from '@components/Text';
+import { signIn, signOut } from 'next-auth/client';
 
 export const LoginTemplate: FC = () => {
+  const [state] = useActor(authService);
+
   return (
     <main>
-      <H1>hey</H1>
+      {state.matches('loggedIn') && (
+        <div>
+          <P>Logged in</P>
+          <button onClick={() => signOut()}>sign out</button>
+        </div>
+      )}
+      {state.matches('loggedOut') && (
+        <div>
+          <P>Logged out</P>
+          <button onClick={() => signIn()}>sign in</button>
+        </div>
+      )}
+      {state.matches('checkIfLoggedIn') && (
+        <div>
+          <P>Loading</P>
+        </div>
+      )}
     </main>
   );
 };

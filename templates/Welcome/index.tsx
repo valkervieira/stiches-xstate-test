@@ -1,25 +1,17 @@
 import { FC } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/client';
+import { authService } from '@services/auth';
+import { useActor } from '@xstate/react';
+import { P } from '@components/Text';
 
 export const WelcomeTemplate: FC = () => {
-  const [session, loading] = useSession();
+  const [state] = useActor(authService);
 
-  if (typeof window !== 'undefined' && loading) return null;
-
-  if (!session) {
-    return (
-      <>
-        <p>not logged in</p>
-        <button onClick={() => signIn()}>log in</button>
-      </>
-    );
+  if (state.matches('loggedIn')) {
+    return <P>Welcome! Thank you for joining!</P>;
+  }
+  if (state.matches('loggedOut')) {
+    return <P>You don&apos;t have permission!</P>;
   }
 
-  return (
-    <>
-      <p>hello there! welcome to the system</p>
-      <p>looks like youre logged in</p>
-      <button onClick={() => signOut()}>log out</button>
-    </>
-  );
+  return <P>Fetching user status</P>;
 };
