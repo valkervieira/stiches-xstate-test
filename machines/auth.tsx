@@ -1,4 +1,5 @@
 import { assign, createMachine, Interpreter, Sender } from 'xstate';
+import { getSession } from 'next-auth/client';
 import type { DefaultUser as UserDetails } from 'next-auth';
 
 export type AuthenticationMachineContext = {
@@ -69,16 +70,12 @@ export const authenticationMachine = createMachine<
       checkIfLoggedIn:
         () => async (send: Sender<AuthenticationMachineEvent>) => {
           // Perform some async check here
-          const isLoggedIn = true;
+          const session = await getSession();
 
-          if (isLoggedIn) {
+          if (session) {
             send({
               type: 'REPORT_IS_LOGGED_IN',
-              userDetails: {
-                email: 'valker.vieira@gmail.com',
-                image: 'http://placehold.it/300x300',
-                name: 'Valker Vieira',
-              },
+              userDetails: session.user,
             });
           } else {
             send({

@@ -1,7 +1,11 @@
 import { WelcomeTemplate } from '@templates/Welcome';
 
 export const Welcome = (): JSX.Element => {
-  return <WelcomeTemplate />;
+  return (
+    <>
+      <WelcomeTemplate />
+    </>
+  );
 };
 
 export default Welcome;

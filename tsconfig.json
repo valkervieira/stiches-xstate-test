@@ -22,7 +22,7 @@
       "@components/*": ["components/*"],
       "@machines/*": ["machines/*"],
       "@contexts/*": ["contexts/*"],
-      "@types/*": ["types/*"]
+      "@services/*": ["services/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
