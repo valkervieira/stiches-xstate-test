@@ -26,7 +26,7 @@ export const Layout: FC = ({ children }) => {
           </li>
         </ul>
       </header>
-      <main>{children}</main>
+      {children}
       <footer></footer>
     </>
   );
