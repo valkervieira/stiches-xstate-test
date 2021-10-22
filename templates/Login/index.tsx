@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { authService } from '@services/auth';
 import { useActor } from '@xstate/react';
-// import { signIn } from 'next-auth/client';
 import { P } from '@components/Text';
 import { signIn, signOut } from 'next-auth/client';
 
