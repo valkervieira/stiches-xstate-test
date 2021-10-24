@@ -11,14 +11,12 @@ export const LoginTemplate: FC = () => {
     <main>
       {state.matches('loggedIn') && (
         <div>
-          <P>Logged in</P>
-          <button onClick={() => signOut()}>sign out</button>
+          <button onClick={() => signOut()}>Sign Out</button>
         </div>
       )}
       {state.matches('loggedOut') && (
         <div>
-          <P>Logged out</P>
-          <button onClick={() => signIn()}>sign in</button>
+          <button onClick={() => signIn('google')}>Sign in with Google</button>
         </div>
       )}
       {state.matches('checkIfLoggedIn') && (
