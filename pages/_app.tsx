@@ -1,22 +1,15 @@
 import type { AppProps } from 'next/app';
 import type { Session } from 'next-auth';
-// lib responsible for adding progress indicator on all pages
 import NProgress from 'nprogress';
-// document head component
 import Head from 'next/head';
-// next router events utility
 import Router from 'next/router';
-// session provider
 import { Provider as SessionProvider } from 'next-auth/client';
-// stiches based css reset
 import { reset } from 'stitches-reset';
-// globalCss stiches theme/configuration
 import { globalCss } from 'stiches.config';
-// layout component on all pages
-import { Layout } from '@templates/Layout';
 
 const globalStyles = globalCss(reset, { body: { background: '$white' } });
 
+NProgress.configure({ speed: '350' });
 Router.events.on('routeChangeStart', (url) => {
   console.info(`Loading: ${url}`);
   NProgress.start();
@@ -42,7 +35,7 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
           }
           
           #nprogress .bar {
-            background: hsl(207, 26%, 7%);
+            background: hsl(48, 70%, 48%);
           
             position: fixed;
             z-index: 1031;
@@ -50,7 +43,7 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
             left: 0;
           
             width: 100%;
-            height: 2px;
+            height: 4px;
           }
           
           /* Fancy blur effect */
@@ -60,7 +53,7 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
             right: 0px;
             width: 100px;
             height: 100%;
-            box-shadow: 0 0 10px hsl(207, 26%, 7%), 0 0 5px hsl(207, 26%, 7%);
+            box-shadow: 0 0 10px hsl(48, 70%, 48%), 0 0 5px hsl(48, 70%, 48%);
             opacity: 1.0;
           
             -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -83,8 +76,8 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
             box-sizing: border-box;
           
             border: solid 2px transparent;
-            border-top-color: hsl(207, 26%, 7%);
-            border-left-color: hsl(207, 26%, 7%);
+            border-top-color: hsl(48, 70%, 48%);
+            border-left-color: hsl(48, 70%, 48%);
             border-radius: 50%;
           
             -webkit-animation: nprogress-spinner 400ms linear infinite;
@@ -114,9 +107,7 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
           }}
         />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Component {...pageProps} />
     </SessionProvider>
   );
 };
