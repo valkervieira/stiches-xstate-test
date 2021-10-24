@@ -9,6 +9,7 @@ import { globalCss } from 'stiches.config';
 
 const globalStyles = globalCss(reset, { body: { background: '$white' } });
 
+// TODO better organize nProgress
 NProgress.configure({ speed: '350' });
 Router.events.on('routeChangeStart', (url) => {
   console.info(`Loading: ${url}`);

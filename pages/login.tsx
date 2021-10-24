@@ -4,7 +4,7 @@ import { LoginTemplate } from '@templates/Login';
 export const Login = (): JSX.Element => {
   return (
     <Layout>
-      <LoginTemplate />;
+      <LoginTemplate />
     </Layout>
   );
 };

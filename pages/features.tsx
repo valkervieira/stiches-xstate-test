@@ -1,10 +1,10 @@
-import { H1 } from '@components/Text';
 import { Layout } from '@templates/Layout';
+import { FeaturesTemplate } from '@templates/Features';
 
-export const Features = () => {
+export const Features = (): JSX.Element => {
   return (
     <Layout>
-      <H1>Features page</H1>
+      <FeaturesTemplate />
     </Layout>
   );
 };

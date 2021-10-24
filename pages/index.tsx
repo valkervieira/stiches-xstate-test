@@ -1,5 +1,5 @@
-import { HomeTemplate } from '@templates/Home';
 import { Layout } from '@templates/Layout';
+import { HomeTemplate } from '@templates/Home';
 
 export const Home = (): JSX.Element => {
   return (

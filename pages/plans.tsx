@@ -1,10 +1,10 @@
-import { H1 } from '@components/Text';
 import { Layout } from '@templates/Layout';
+import { PlansTemplate } from '@templates/Plans';
 
-export const Plans = () => {
+export const Plans = (): JSX.Element => {
   return (
     <Layout>
-      <H1>Plans page</H1>
+      <PlansTemplate />
     </Layout>
   );
 };
