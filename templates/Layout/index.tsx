@@ -6,9 +6,9 @@ import logo from 'public/images/layout/logo.svg';
 import { css } from 'stiches.config';
 
 const menuItems = [
-  { text: 'Home', href: '/' },
-  { text: 'Welcome', href: '/welcome' },
-  { text: 'Login', href: '/login' },
+  { text: 'Features', href: '/features' },
+  { text: 'Plans', href: '/plans' },
+  { text: 'Docs', href: '/login' },
 ];
 
 export const Layout: FC = ({ children }) => {
