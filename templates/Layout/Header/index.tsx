@@ -1,4 +1,4 @@
-import logo from 'public/images/layout/logo.svg';
+import logo from '@images/layout/logo.svg';
 
 import Image from 'next/image';
 import { Anchor } from '@components/Anchor';

@@ -23,7 +23,9 @@
       "@machines/*": ["machines/*"],
       "@contexts/*": ["contexts/*"],
       "@services/*": ["services/*"],
-      "@test/*": ["__test__/*"]
+      "@test/*": ["__test__/*"],
+      "@images/*": ["public/images/*"],
+      "@icons/*": ["public/icons/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
