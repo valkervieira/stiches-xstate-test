@@ -7,7 +7,9 @@ import { Provider as SessionProvider } from 'next-auth/client';
 import { reset } from 'stitches-reset';
 import { globalCss } from 'stiches.config';
 
-const globalStyles = globalCss(reset, { body: { background: '$white' } });
+const globalStyles = globalCss(reset, {
+  body: { background: '$black500', fontFamily: 'sans-serif' },
+});
 
 // TODO better organize nProgress
 NProgress.configure({ speed: '350' });
@@ -36,7 +38,7 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
           }
           
           #nprogress .bar {
-            background: hsl(48, 70%, 48%);
+            background: hsla(0, 0%, 99%, 0.5);
           
             position: fixed;
             z-index: 1031;
@@ -44,7 +46,7 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
             left: 0;
           
             width: 100%;
-            height: 4px;
+            height: 2px;
           }
           
           /* Fancy blur effect */
@@ -54,7 +56,7 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
             right: 0px;
             width: 100px;
             height: 100%;
-            box-shadow: 0 0 10px hsl(48, 70%, 48%), 0 0 5px hsl(48, 70%, 48%);
+            box-shadow: 0 0 10px hsla(0, 0%, 99%), 0 0 5px hsla(0, 0%, 99%, 0.5);
             opacity: 1.0;
           
             -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -77,8 +79,8 @@ export const MyApp: (props: AppProps<{ session: Session }>) => JSX.Element = ({
             box-sizing: border-box;
           
             border: solid 2px transparent;
-            border-top-color: hsl(48, 70%, 48%);
-            border-left-color: hsl(48, 70%, 48%);
+            border-top-color: hsla(0, 0%, 99%, 0.5);
+            border-left-color: hsla(0, 0%, 99%, 0.5);
             border-radius: 50%;
           
             -webkit-animation: nprogress-spinner 400ms linear infinite;

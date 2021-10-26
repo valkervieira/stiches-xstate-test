@@ -22,9 +22,10 @@
       "@components/*": ["components/*"],
       "@machines/*": ["machines/*"],
       "@contexts/*": ["contexts/*"],
-      "@services/*": ["services/*"]
+      "@services/*": ["services/*"],
+      "@test/*": ["__test__/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
 }

@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { H1 } from '@components/Text';
+import { Hero } from './Hero';
 
 export const HomeTemplate: FC = () => {
   return (
     <main>
-      <H1>hey</H1>
+      <Hero />
     </main>
   );
 };

@@ -6,8 +6,9 @@ export const Main: FC = ({ children }) => {
     <main
       className={css({
         height: '100vh',
-        display: 'grid',
-        placeItems: 'center',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       })()}
     >
       {children}
