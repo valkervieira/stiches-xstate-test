@@ -1,5 +1,5 @@
 import { Image } from '@components/Image';
-import HeroImage from 'public/images/home/hero.jpg';
+import HeroImage from '@images/home/hero.webp';
 import * as styles from './styles';
 
 export const Hero = (): JSX.Element => {
